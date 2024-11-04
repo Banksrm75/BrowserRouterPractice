@@ -12,6 +12,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
+			],
+			cars: [
+				{
+					make: "Honda",
+					model: "Civic", 
+					year: "1996"
+				},
+				{
+					make: "Toyota",
+					model: "Tacoma", 
+					year: "2010"
+				}
 			]
 		},
 		actions: {
@@ -37,6 +49,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			displayCars: () => {
+				const store = getStore();
+				
+				for (let i = 0; i < store.cars.length; i++) {
+					console.log("You own a ", store.cars[i].model)
+				}
+				
 			}
 		}
 	};
